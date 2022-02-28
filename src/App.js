@@ -14,6 +14,7 @@ import Footer from './components/general/Footer';
 import ScrollTopButton from './components/general/ScrollTopButton';
 import NotFound from './components/general/NotFound';
 
+
 // PAGES
 import Home from './components/Home';
 import Contact from './components/Contact';

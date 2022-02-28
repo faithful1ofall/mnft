@@ -89,17 +89,17 @@ function NftItem({ img, title, owner, price, category, dateCreated, id, index, n
             <div className='card-body p-3 position-relative'>
                 <div className='position-relative mb-4 shadow'>
                     <div className='author z-index-20'>
-                    {owner === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4'  ? (
+                    {owner === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4' || owner === '0x791A282C56bA5Ae4C746B5422399ca6c783BB901' ? (
                         <div className='ms-3 rounded-circle bd-3 border-dark bg-white' style={{ width: '45px', height: '45px' }}> 
                             <img className='rounded-circle  img-fluid'  src='images/mini.svg' alt='Mini Utopia'  />
                            
                         </div>
                          ) : <div className='ms-3 rounded-circle bd-3 border-dark bg-white' style={{ width: '45px', height: '45px' }}> 
-                         <Jazzicon address={owner} />
+                                <Jazzicon address={owner} />
                         
-                     </div>}
+                            </div>}
                          
-                        {owner === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4'  ? (
+                        {owner === '0x791A282C56bA5Ae4C746B5422399ca6c783BB901' || owner === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4' ? (
                         <span className='icon bg-primary text-white me-1'  >
                             <i className='las la-check-double' ></i>
                         </span>

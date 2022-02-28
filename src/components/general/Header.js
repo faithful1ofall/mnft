@@ -71,7 +71,7 @@ function Header() {
         <nav className='navbar navbar-expand-lg navbar-dark fixed-top' id='navbar'>
             <div className='container'>
                 <Link className='navbar-brand' to='/'>
-                    <img class='img-fluid' src='images/logo.svg' alt='Mini Utopia' width={230} />
+                    <img class='img-fluid' src='images/logo.svg' alt='Mini Utopia' width={180} />
                 </Link>
 
                 <button
@@ -134,16 +134,19 @@ function Header() {
                                     data-bs-toggle='dropdown'
                                     aria-expanded='false'
                                 >
+                       
+                                    {web3Ctx.account === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4'||web3Ctx.account === '0x791A282C56bA5Ae4C746B5422399ca6c783BB901'  ? (
+                                
+                                 <div  style={{ width: '35px', height: '35px' }}>
+                                       <img className='rounded-circle  img-fluid'  src='images/mini1.png' alt='Mini Utopia'  />
+                                  </div>
                                     
-                                    {web3Ctx.account === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4'  ? (
-                         <div style={{ width: '35px', height: '35px' }}>
-                            <img className='rounded-circle  img-fluid'  src='images/mini1.png' alt='Mini Utopia'  />
-                           
-                            </div>
-                         ) : <div className='ms-3 rounded-circle bd-3 border-dark bg-white' style={{ width: '45px', height: '45px' }}> 
-                         <Jazzicon address={web3Ctx.account} />
+                                     
+                                   ) : <div className='ms-3 rounded-circle bd-3 border-dark bg-white' style={{ width: '45px', height: '45px' }}> 
+                                    <Jazzicon address={web3Ctx.account} />
                         
-                         </div>}
+                                     </div>}  
+                        
                                  
                                 </NavLink>
                                 <ul

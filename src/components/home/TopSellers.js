@@ -27,7 +27,7 @@ function TopSellers({ title, description, topSellers }) {
                                 <p className='fw-bold text-primary mb-0'>1.</p>
                                 <div className='position-relative'>
                                    
-                                    {seller.address === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4'  ? (
+                                    {seller.address === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4' || seller.address === '0x791A282C56bA5Ae4C746B5422399ca6c783BB901'  ? (
                          <div className='ms-3' style={{ width: '50px', height: '50px' }}>
                             <img className='rounded-circle  img-fluid'  src='images/mini.svg' alt='Mini Utopia'  />
                            

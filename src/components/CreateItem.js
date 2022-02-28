@@ -199,7 +199,7 @@ function CreateItem() {
                                                 <div className='my-5'>
                                                     <i className='las la-image la-3x text-muted'></i>
                                                     <h6 className='mb-0 fw-normal text-gray-500'>
-                                                        Click here to uplad
+                                                        Click here to upload
                                                     </h6>
                                                     <p className='text-muted mb-0'>Waiting to catch your cool image</p>
                                                 </div>
@@ -281,7 +281,7 @@ function CreateItem() {
                                         {/* SUBMIT */}
                                         <div className='col-12'>
                                             <button className='btn btn-primary' type='submit'>
-                                                <i className='lab la-ethereum me-2'></i>Mint NFT
+                                            <img className='img-fluid' src='images/csc2.svg' alt='csc' width={32}></img> Mint NFT
                                             </button>
                                         </div>
                                     </div>
