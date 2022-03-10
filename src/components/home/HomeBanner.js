@@ -30,10 +30,11 @@ function HomeBanner() {
                             <a className='btn btn-black' href='https://www.oneswap.net/cet/trade/0xaC72c23cB2c8A25F85989585fED913334bDe1297'>
                             Buy Mini Utopia Token
                              </a>
-                                
-                                
-                                    
-                                
+                            </li>
+                            <li className='list-inline-item'>
+                            <a className='btn btn-black' href='https://stake.miniutopia.co'>
+                            Stake Mini Utopia Token
+                             </a>    
                             </li>
                         </ul>
                         

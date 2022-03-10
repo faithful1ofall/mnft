@@ -118,6 +118,11 @@ function Header() {
                                 Mint NFT
                             </NavLink>
                         </li>
+                        <li className='nav-item text-dark'>
+                            <a className='nav-link' href='https://stake.miniutopia.co'>
+                                Stake MUT
+                            </a>
+                        </li>
                         <li className='nav-item '>
                             <NavLink className='nav-link' to='/search'>
                                 <i className='las la-search' style={{ marginTop: '0.125rem' }}></i>

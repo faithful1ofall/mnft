@@ -24,7 +24,7 @@ function TopSellers({ title, description, topSellers }) {
                                 rel='noreferrer noopener'
                                 target='_blank'
                             >
-                                <p className='fw-bold text-primary mb-0'>1.</p>
+                                <p className='fw-bold text-primary mb-0'></p>
                                 <div className='position-relative'>
                                    
                                     {seller.address === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4' || seller.address === '0x791A282C56bA5Ae4C746B5422399ca6c783BB901'  ? (
@@ -36,10 +36,10 @@ function TopSellers({ title, description, topSellers }) {
                          <Jazzicon address={seller.address} />
                         
                      </div>}
-                                    
+                     {seller.address === '0xdF600a1C4D7031097BAd422a04408b63b06dA1B4' || seller.address === '0x791A282C56bA5Ae4C746B5422399ca6c783BB901'  ? (
                                     <div className='author-img-badge bg-primary text-white'>
                                         <i className='las la-check-double la-xs'></i>
-                                    </div>
+                                    </div> ) :null}
                                 </div>
                                 <div className='ms-3'>
                                     <h3 className='h6 mb-1 text-capitalize'>
