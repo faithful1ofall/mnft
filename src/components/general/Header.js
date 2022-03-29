@@ -8,15 +8,17 @@ import web3 from '../../connection/web3';
 import { formatPrice, configEtherScanUrl } from '../../helpers/utils';
 import { Jazzicon } from '@ukstv/jazzicon-react';
 import UAuth from "@uauth/js";
-import App from 'next/app';
 
 const uauth = new UAuth({
     clientID: "08f0515f-cb7f-4688-858b-06a66bca1def",
-    clientSecret: "yFeTReKOjyrSIn4TpWfacvrMBY",
-    redirectUri: "https://3000-faithful1ofall-mnft-hq1w71bbm3j.ws-eu38.gitpod.io/callback",
-    postLogoutRedirectUri: "https://3000-faithful1ofall-mnft-hq1w71bbm3j.ws-eu38.gitpod.io/",
+    clientSecret: "KmI0zaYFt89IK028laNp_Xf1RG",
+    redirectUri: "https://miniutopia-marketplace-faithful1ofall.vercel.app/callback",
+    postLogoutRedirectUri: "https://miniutopia-marketplace-faithful1ofall.vercel.app",
     scope: "openid email wallet",
-    fallbackIssuer: "https://beta.auth.unstoppabledomains.com/"
+    fallbackIssuer: "https://beta.auth.unstoppabledomains.com/",
+    uiOptions:{
+        getADomainLink: "https://unstoppabledomains.com/?ref=37dc46cb4c40412"
+    }
   });
   
 
@@ -298,17 +300,17 @@ function Header() {
                                     
                                     
                                     <img class='img-fluid' src='images/unstoppable.png' alt='unstopabble' width={19} />
-                                   logout
+                                 {user.sub}  logout
                                 </button>
                         ) : (
                         <button
                                     type='button'
-                                    className='btn btn-gradient-primary btn-sm px-3 d-lg-flex align-items-center'
+                                    className='btn btn-sm px-3 d-lg-flex'
                                     onClick={handleLogin}
                                 >
                                     
-                                    <img class='img-fluid' src='images/unstoppable.png' alt='unstopabble' width={19} />
-                                     Login with unstopabble
+                                    <img class='img-fluid' src='images/unstop.png' alt='unstopabble' width={180} />
+                                     
                                 </button>
                         )}
                 </div>
