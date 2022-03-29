@@ -7,22 +7,73 @@ import MarketplaceContext from '../../store/marketplace-context';
 import web3 from '../../connection/web3';
 import { formatPrice, configEtherScanUrl } from '../../helpers/utils';
 import { Jazzicon } from '@ukstv/jazzicon-react';
+import UAuth from "@uauth/js";
+import App from 'next/app';
 
+const uauth = new UAuth({
+    clientID: "08f0515f-cb7f-4688-858b-06a66bca1def",
+    clientSecret: "yFeTReKOjyrSIn4TpWfacvrMBY",
+    redirectUri: "https://3000-faithful1ofall-mnft-hq1w71bbm3j.ws-eu38.gitpod.io/callback",
+    postLogoutRedirectUri: "https://3000-faithful1ofall-mnft-hq1w71bbm3j.ws-eu38.gitpod.io/",
+    scope: "openid email wallet",
+    fallbackIssuer: "https://beta.auth.unstoppabledomains.com/"
+  });
+  
 
+    
 function Header() {
     const [fundsLoading, setFundsLoading] = useState(false);
     const web3Ctx = useContext(Web3Context);
     const marketplaceCtx = useContext(MarketplaceContext);
     const { addToast } = useToasts();
+    const [user, setUser] = React.useState();
+
+    React.useEffect(() => {
+        const initUser = async () => {
+          try {
+            const user = await uauth?.user();
+            setUser(user);
+          } catch (error) {
+            console.log(error);
+          }
+        };
+    
+        initUser();
+      }, []);
+  
+    //Login/out Functions
+  
+    const handleLogin = async () => {
+        try {
+          await uauth?.loginWithPopup();
+          const user = await uauth?.user();
+          setUser(user);
+        } catch (error) {
+          console.log(error);
+        }
+        return window.location.reload();
+      };
+  
+      const handleLogout = async () => {
+        try {
+          await uauth?.logout();
+          setUser(undefined);
+        } catch (error) {
+          console.log(error);
+        }
+        return window.location.reload();
+      };
+
 
     useEffect(() => {
         navbarChangeStyle();
     }, []);
+   
 
     const connectWalletHandler = async () => {
         try {
             // Request account access
-            await window.ethereum.request({ method: 'https://coinex.net' });
+            await window.ethereum.request({ method: 'https://rpc.coinex.net' });
         } catch (error) {
             console.error(error);
         }
@@ -66,7 +117,9 @@ function Header() {
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [marketplaceCtx.mktIsLoading]);
-
+    
+    
+    
     return (
         <nav className='navbar navbar-expand-lg navbar-dark fixed-top' id='navbar'>
             <div className='container'>
@@ -185,7 +238,7 @@ function Header() {
                                             <div className='ms-0'>
                                                 <p className='mb-0 lh-1'>Marketplace Balance</p>
                                                 <p className='mb-0 text-primary'>
-                                                    {formatPrice(marketplaceCtx.userFunds)} ETH
+                                                    {formatPrice(marketplaceCtx.userFunds)} CET
                                                 </p>
                                             </div>
                                         </NavLink>
@@ -215,18 +268,49 @@ function Header() {
                         )}
 
                         {!web3Ctx.account && (
+                           
                             <li className='nav-item nav-item ms-lg-2'>
                                 <button
                                     type='button'
                                     className='btn btn-gradient-primary btn-sm px-3 d-lg-flex align-items-center'
                                     onClick={connectWalletHandler}
                                 >
-                                    <i className='las la-wallet me-2 mb-1'></i>
-                                    Connect your wallet
+                                    <img class='img-fluid' src='images/metamask.png' alt='Metamask' width={18} />
+                                    Connect
                                 </button>
-                            </li>
+                            </li> 
                         )}
+                        
+                        
+                        
+                            
+                        
+                        
                     </ul>
+                    {user ? (
+                            
+                            
+                        <button
+                                    type='button'
+                                    className='btn btn-gradient-primary btn-sm px-3 d-lg-flex align-items-center'
+                                    onClick={handleLogout}
+                                >
+                                    
+                                    
+                                    <img class='img-fluid' src='images/unstoppable.png' alt='unstopabble' width={19} />
+                                   logout
+                                </button>
+                        ) : (
+                        <button
+                                    type='button'
+                                    className='btn btn-gradient-primary btn-sm px-3 d-lg-flex align-items-center'
+                                    onClick={handleLogin}
+                                >
+                                    
+                                    <img class='img-fluid' src='images/unstoppable.png' alt='unstopabble' width={19} />
+                                     Login with unstopabble
+                                </button>
+                        )}
                 </div>
             </div>
         </nav>

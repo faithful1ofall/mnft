@@ -28,6 +28,7 @@ function CreateItem() {
     const [mintLoading, setMintLoading] = useState(false);
     const { addToast } = useToasts();
     const today = new Date();
+    const [fileUrl, setFileUrl] = useState()
 
     useEffect(() => {
         document.title = 'Mint an NFT | NFT Marketplace';
@@ -86,7 +87,8 @@ function CreateItem() {
                 console.error('Something went wrong when updloading the file');
                 return;
             }
-
+            const url = `https://ipfs.infura.io/ipfs/${fileAdded.path}`
+            setFileUrl(url)
             const metadata = {
                 title: 'Asset Metadata',
                 type: 'object',
@@ -111,6 +113,7 @@ function CreateItem() {
                         type: 'string',
                         description: today,
                     },
+                    imageurl: fileUrl
                 },
             };
 

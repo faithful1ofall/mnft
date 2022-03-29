@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import PageBanner from './general/PageBanner';
-// import Pagination from './general/Pagination';
+import Pagination from './general/Pagination';
 import CollectionContext from '../store/collection-context';
 import MarketplaceContext from '../store/marketplace-context';
 import { formatPrice } from '../helpers/utils';
@@ -13,8 +13,7 @@ import { categoryOptions } from '../helpers/constants';
 function Explore() {
     const collectionCtx = useContext(CollectionContext);
     const marketplaceCtx = useContext(MarketplaceContext);
-    // const [currentPage, setCurrentPage] = useState(1);
-    const [currentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(20);
 
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -30,9 +29,9 @@ function Explore() {
     }, []);
 
     // Pagination
-    // function paginate(pageNumber) {
-    //     setCurrentPage(pageNumber);
-    // }
+     function paginate(pageNumber) {
+         setCurrentPage(pageNumber);
+     }
 
     return (
         <>
@@ -85,12 +84,12 @@ function Explore() {
                         </>
                     )}
 
-                    {/* <Pagination
+                    { <Pagination
                         itemsPerPage={itemsPerPage}
                         totalItems={collectionCtx.collection.length}
                         paginate={paginate}
                         currentPage={currentPage}
-                    /> */}
+                    /> }
                 </div>
             </section>
         </>

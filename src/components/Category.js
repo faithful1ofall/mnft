@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PageBanner from './general/PageBanner';
-// import Pagination from './general/Pagination';
+import Pagination from './general/Pagination';
 import CollectionContext from '../store/collection-context';
 import MarketplaceContext from '../store/marketplace-context';
 import { formatPrice, formatCategory } from '../helpers/utils';
@@ -12,8 +12,7 @@ import FullScreenLoader from './general/FullScreenLoader';
 function Category() {
     const collectionCtx = useContext(CollectionContext);
     const marketplaceCtx = useContext(MarketplaceContext);
-    // const [currentPage, setCurrentPage] = useState(1);
-    const [currentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(20);
     const { category } = useParams();
 
@@ -30,9 +29,9 @@ function Category() {
     console.log(category);
 
     // Pagination
-    // function paginate(pageNumber) {
-    //     setCurrentPage(pageNumber);
-    // }
+    function paginate(pageNumber) {
+      setCurrentPage(pageNumber);
+    }
 
     return (
         <>
@@ -70,12 +69,12 @@ function Category() {
                         </>
                     )}
 
-                    {/* <Pagination
+                    { <Pagination
                         itemsPerPage={itemsPerPage}
                         totalItems={collectionCtx.collection.length}
                         paginate={paginate}
                         currentPage={currentPage}
-                    /> */}
+                    /> }
 
                     {currentItems.filter((el) => el.category === category).length === 0 &&
                         collectionCtx.collection.length !== 0 &&
