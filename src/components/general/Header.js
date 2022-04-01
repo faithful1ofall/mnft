@@ -10,10 +10,10 @@ import { Jazzicon } from '@ukstv/jazzicon-react';
 import UAuth from "@uauth/js";
 
 const uauth = new UAuth({
-    clientID: "08f0515f-cb7f-4688-858b-06a66bca1def",
-    clientSecret: "KmI0zaYFt89IK028laNp_Xf1RG",
-    redirectUri: "https://miniutopia-marketplace-faithful1ofall.vercel.app/callback",
-    postLogoutRedirectUri: "https://miniutopia-marketplace-faithful1ofall.vercel.app",
+    clientID: "386a1894-7acc-45eb-9868-9a2b22ffbd66",
+    clientSecret: "JUB_8-_qiGjo9UBm8oczhbpC6_",
+    redirectUri: "https://miniutopia.co/callback",
+    postLogoutRedirectUri: "https://miniutopia.co",
     scope: "openid email wallet",
     fallbackIssuer: "https://beta.auth.unstoppabledomains.com/",
     uiOptions:{
